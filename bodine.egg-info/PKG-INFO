@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: bodine
+Version: 0.1
+Summary: Tool for writers.
+Home-page: https://github.com/greato
+Author: greato
+Author-email: ricky@han.org
+License: GNU
+Description: This is a tool for writers to write better writings.
+Keywords: writing tool widget
+Platform: UNKNOWN

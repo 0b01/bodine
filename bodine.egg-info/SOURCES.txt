@@ -1,0 +1,9 @@
+setup.py
+bodine/__init__.py
+bodine/googleapi.py
+bodine.egg-info/PKG-INFO
+bodine.egg-info/SOURCES.txt
+bodine.egg-info/dependency_links.txt
+bodine.egg-info/entry_points.txt
+bodine.egg-info/not-zip-safe
+bodine.egg-info/top_level.txt
