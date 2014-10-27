@@ -11,3 +11,4 @@ This is a tool for writers to write better writings as an open source clone of W
 - [ ] Synonyms using Textblob library
 - [ ] Google N-grams View
 - [ ] NLTK it's -> it is
+- [ ] POS Tagging
