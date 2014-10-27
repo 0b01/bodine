@@ -1,4 +1,6 @@
 import requests
+import re
+
 
 class GoogleBooks():
 	'''Calls Google Books unauthorized API and return results
@@ -31,8 +33,9 @@ class GoogleBooksWildcard():
 	snippets=[]
 	matches=[]
 	def __init__(self, searchterm):
-		self.searchterm = '"' + searchterm + '"'
-		self.url = 'https://www.googleapis.com/books/v1/volumes?q=allintext:%s&maxResults=40&filter=partial' % self.searchterm
+		self.searchterm = searchterm
+		self.max = 5
+		self.url = 'https://www.googleapis.com/books/v1/volumes?q=allintext:"%s"&maxResults=%d&filter=partial' % (self.searchterm, self.max)
 		if self.__call():
 			self.__sort()
 	def __call(self):
@@ -49,14 +52,20 @@ class GoogleBooksWildcard():
 		return False
 	def __sort(self):
 		highlights = []
-		for snippet in [snippet.encode('utf-8').replace('<br>\n','') for snippet in self.snippets]:
-			start = snippet.find('<b>')
-			end = snippet.find('</b>')
-			bold = snippet[start+3:end]
-			if bold.lower() not in highlights:
+		self.regex = re.compile( 
+					'.*?(' + \
+						self.searchterm.replace('*','(\w*?)')\
+						.replace('.','\.') + \
+					').+' ) # .+(a rather (.*?) situation).+
+		for snippet in [snippet.encode('utf-8').replace('<br>\n','').replace('<b>','').replace('</b>','') for snippet in self.snippets]:
+			try:
+				bold = self.regex.match(snippet, re.I).group(1) # -> a rather manageable situation
+			except Exception:
+				continue
+			if bold.lower() not in highlights: # who likes undulating recurrances?
 				self.matches.append([bold,snippet])
 				highlights.append(bold.lower())
-	#TODO: regex match to only 1 word per
+	#TODO: regex match to only 1 word perw
 
 class Google():
 	'''Search Google unauthorized API and return results
@@ -75,7 +84,6 @@ class Synonyms(object):
 	"""returns synonyms of words"""
 	def __init__(self, arg):
 		self.arg = arg
-
 
 class Bodine(object):
 	"""sorts out the formats and functions to use"""
