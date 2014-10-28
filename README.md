@@ -1,6 +1,6 @@
 Bodine
 -----
-
+![Bodine](https://raw.githubusercontent.com/Yoyodyne/bodine/master/blatant.png)
 #### What?
 This is a tool for writers to write better writings as an open source clone of Writefull.
 
