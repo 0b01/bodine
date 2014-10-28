@@ -3,8 +3,11 @@ Bodine
 
 ### What is Bodine?
 ![Bodine](https://raw.githubusercontent.com/Yoyodyne/bodine/master/blatant.png)
-Open source version of [Writefull](http://writefullapp.com).
-Bodine is a writing tool. Select a phrase, Press a hotkey and it does the following:
+
+Open source version of [Writefull](http://writefullapp.com) which was posted on HN yesterday.
+
+Select a phrase, Press a hotkey and Bodine can do the following:
+
 - searches selection on Google Books for correctness
 - finds synonyms in context and gets their respective correctness using Google books
 - matches wildcard in context (i.e. "what you see is what you *")
