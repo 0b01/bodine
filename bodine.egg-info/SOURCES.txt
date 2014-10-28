@@ -1,6 +1,8 @@
 setup.py
 bodine/__init__.py
-bodine/googleapi.py
+bodine/api.py
+bodine/config.py
+bodine/syn.py
 bodine.egg-info/PKG-INFO
 bodine.egg-info/SOURCES.txt
 bodine.egg-info/dependency_links.txt
