@@ -1,7 +1,7 @@
 from bodine.syn import Synonyms
 
 def test_syn():
-	Synonyms('*blatant* aggression').google()
+	print Synonyms('*blatant* aggression').google()
 
 if __name__ == '__main__':
 	test_syn()

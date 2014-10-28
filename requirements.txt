@@ -1,0 +1,6 @@
+argparse==1.2.1
+-e git+https://github.com/Yoyodyne/bodine.git@3208d9979b129bdc9eb5f832f861e8df288938f4#egg=bodine-master
+nltk==3.0.0
+requests==2.4.3
+textblob==0.9.0
+wsgiref==0.1.2
