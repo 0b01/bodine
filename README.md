@@ -2,14 +2,14 @@ Bodine
 -----
 ![Bodine](https://raw.githubusercontent.com/Yoyodyne/bodine/master/blatant.png)
 #### What is Bodine?
-This is a writing tool. Press a hotkey and you can get:
-- searches a phrase on Google Books for the number of results
-- finds synonyms in context and gets their respective number of results
-- context wildcard searching (i.e. "what you see is what you *")
-- examples of usage
-- historical data of phrase
+Bodine is a writing tool. Select a phrase, Press a hotkey and it does the following:
+- searches selection on Google Books for correctness
+- finds synonyms in context and gets their respective correctness using Google books
+- matches wildcard in context (i.e. "what you see is what you *")
+- returns examples
+- shows historical usage
 
-This is in early beta with a barely functional GUI. If you like shabby software, this is for you!
+This is in early beta with a barely functional GUI. If you like shabby software, you should consider downloading it. More to come. 
 #### Todo
 - [x] GUI
 - [ ] Select Google Books API by subject/genre
