@@ -9,8 +9,6 @@ def test_googleresultcount():
 	words = ['a difficult situation','an awkward situation','a serious situation','an embarassing situation','a delicate situation']
 	print words
 	print [Google(i).items for i in words]
-def test_bodine():
-	input = ["* can be replaced", "a rather * situation"]
 def test_wildcard():
 	for i,j in GoogleBooksWildcard('a rather * situation').matches:
 		print i, '|' ,j

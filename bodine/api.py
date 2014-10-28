@@ -1,11 +1,9 @@
 import requests
 import re
-
+from config import WORDNIK_API_KEY
 
 class GoogleBooks():
-	'''Calls Google Books unauthorized API and return results
-:items  - count of found search terms
-:snippets  - returns 10 of the search terms as a preview'''
+	'''Calls Google Books unauthorized API and return results'''
 	searchterm = ''
 	items = 0
 	snippets=[]
@@ -24,10 +22,7 @@ class GoogleBooks():
 				except KeyError:
 					pass
 class GoogleBooksWildcard():
-	'''i.e.
-	it is perfectly * to
-:items  - count of found search terms
-:snippets  - returns 10 of the search terms as a preview'''
+	'''i.e. it is perfectly * to'''
 	searchterm = ''
 	items = 0
 	snippets=[]
@@ -54,7 +49,7 @@ class GoogleBooksWildcard():
 		highlights = []
 		self.regex = re.compile( 
 					'.*?(' + \
-						self.searchterm.replace('*','(\w*?)')\
+						self.searchterm.replace('*','(\w+?)')\
 						.replace('.','\.') + \
 					').+' ) # .+(a rather (.*?) situation).+
 		for snippet in [snippet.encode('utf-8').replace('<br>\n','').replace('<b>','').replace('</b>','') for snippet in self.snippets]:
@@ -65,11 +60,10 @@ class GoogleBooksWildcard():
 			if bold.lower() not in highlights: # who likes undulating recurrances?
 				self.matches.append([bold,snippet])
 				highlights.append(bold.lower())
-	#TODO: regex match to only 1 word perw
+	#TODO: regex match to only 1 word - DONE
 
 class Google():
-	'''Search Google unauthorized API and return results
-:items  - count of found search terms'''
+	'''Search Google unauthorized API and return results'''
 	searchterm = ''
 	items = 0
 	def __init__(self, searchterm):
@@ -80,15 +74,14 @@ class Google():
 		r = requests.get(self.url)
 		response = r.json()
 		self.items = int(response['responseData']['cursor']['estimatedResultCount'])
-class Synonyms(object):
-	"""returns synonyms of words"""
-	def __init__(self, arg):
-		self.arg = arg
 
-class Bodine(object):
-	"""sorts out the formats and functions to use"""
-	def __init__(self, input):
-		self.input = input
-		self.task()
-	def task(self):
-		pass
+
+class Wordnik(object):
+	"""Wordnik related words"""
+	def __init__(self, word):
+		self.word = word
+		self.url = 'http://api.wordnik.com:80/v4/word.json/%s/relatedWords?useCanonical=false&limitPerRelationshipType=3&api_key=%s' % (word,WORDNIK_API_KEY)
+		r = requests.get(self.url)
+		self.result = r.json()
+	def __repr__(self):
+		return '<bodine.api.wordnik - ' + self.word + '>'
