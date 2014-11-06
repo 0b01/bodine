@@ -1,5 +1,6 @@
 Bodine
 -----
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/yoyodyne/bodine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### What is Bodine?
 ![Bodine](https://raw.githubusercontent.com/Yoyodyne/bodine/master/blatant.png)
