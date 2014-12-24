@@ -1,8 +1,14 @@
 Bodine
 -----
-![Bodine](https://raw.githubusercontent.com/Yoyodyne/bodine/master/blatant.png)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/yoyodyne/bodine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ### What is Bodine?
-Bodine is a writing tool. Select a phrase, Press a hotkey and it does the following:
+![Bodine](https://raw.githubusercontent.com/Yoyodyne/bodine/master/blatant.png)
+
+Open source version of [Writefull](http://writefullapp.com) which was posted on HN yesterday.
+
+Select a phrase, Press a hotkey and Bodine can do the following:
+
 - searches selection on Google Books for correctness
 - finds synonyms in context and gets their respective correctness using Google books
 - matches wildcard in context (i.e. "what you see is what you *")
