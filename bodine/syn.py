@@ -7,9 +7,11 @@ class Synonyms(object):
 	def __init__(self, query):
 		'''currently only support 1 synonym search per query'''
 		if not query:
-			raise Exception, 'Empty input.'
+			raise Exception, 'Empty input.\n\te.g. *blatant* aggression'
+		if len(query.split(' ')) == 1:
+			raise Exception, 'Not enough context.\n\te.g. *blatant* aggression'
 		self.query = query
-		print query
+		# print query
 		self.word = filter(lambda x: x[0]==x[-1]=='*', query.split(' '))[0].replace('*','')
 
 		# find the index of the highlighted word
@@ -40,5 +42,6 @@ class Synonyms(object):
 		retl = []
 		for i in txt:
 			templ[self.index] = i[0]
-			retl.append(' '.join(templ) + '    : %d results' % i[1])
-		return '\n'.join(retl)
+			retl.append(' '.join(templ))
+			retl.append(i[1])
+		return '\n'.join(map(str,retl))

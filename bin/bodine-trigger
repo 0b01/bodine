@@ -1,0 +1,17 @@
+# !/bin/bash
+echo 'running'
+selected=`xsel`
+
+zenity --info --title="running" --text="running........" &
+zpid=$!
+
+/home/g/Documents/bodine/bin/bodine "$selected"
+kill $zpid
+
+
+# for i in $(seq 1 10)
+# do
+#     echo "bla"
+#     echo "xxx"
+#     echo "$i"
+# done | zenity --list --title="title" --text="text" --column="X" --column="Y" --column="Z"
